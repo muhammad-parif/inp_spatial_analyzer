@@ -1,0 +1,34 @@
+[general]
+name=INP Vegetation Analysis
+qgisMinimumVersion=3.0
+description=Calculate Relative Density (KR), Relative Frequency (FR), Relative Dominance (DR), and Importance Value Index (INP) of vegetation, and generate raster heatmaps using IDW interpolation.
+version=2.7.6
+author=Muhammad Parif - IPB University
+email=payip28muhammad@apps.ipb.ac.id
+
+about=The INP Vegetation Analysis Plugin is designed to process and analyze vegetation data using Importance Value Index (INP). The plugin calculates Relative Density (KR), Relative Frequency (FR), Relative Dominance (DR), and INP for various vegetation growth stages, including trees, poles, stakes, seedlings, lianas, and understory plants. It can export analysis results to CSV, add calculated attributes to vector data, and generate raster heatmaps to visualize spatial distribution using IDW interpolation.
+
+tracker=https://github.com/muhammad-parif/INP-Analisis/issues
+repository=https://github.com/muhammad-parif/INP-Analisis.git
+
+# Recommended metadata
+
+hasProcessingProvider=False
+
+# Changelog
+changelog=Version 2.7.6 - User interface loading synchronization has been fixed.
+
+# Tags
+tags=vegetation, inp, forestry, importance value index, vegetation analysis, idw, heatmap
+
+homepage=https://github.com/muhammad-parif/INP-Analisis
+category=Vector
+icon=icon.png
+
+experimental=False
+deprecated=False
+
+# Since QGIS 3.8
+# plugin_dependencies=
+
+server=False
