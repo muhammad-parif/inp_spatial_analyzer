@@ -278,8 +278,9 @@ class InpSpatialAnalyzer:
                 writer.writerow(['No', 'Nama Jenis (Ilmiah)', 'K (ind/ha)', 'KR (%)', 'F', 'FR (%)', 'D (m2/ha)', 'DR (%)', 'INP (%)'])
                 writer.writerows(csv_rows)
 
-            # Hitung akumulasi metrik per plot_id untuk interpolasi
+            # Hitung akumulasi metrik per plot_id HANYA UNTUK SPESIES UNIK (mencegah penghitungan ganda)
             plot_metric_sums = {m: {} for m in selected_metrics}
+            counted_plot_species = set()
 
             for feat in layer.getFeatures():
                 stadium_val = str(feat[f_stadium]).strip() if feat[f_stadium] is not None else ""
@@ -291,7 +292,8 @@ class InpSpatialAnalyzer:
                 p_id = str(feat[f_plot]).strip()
                 sp = str(feat[f_spesies]).strip()
 
-                if sp in species_metrics:
+                if sp in species_metrics and (p_id, sp) not in counted_plot_species:
+                    counted_plot_species.add((p_id, sp))
                     for metric in selected_metrics:
                         if p_id not in plot_metric_sums[metric]:
                             plot_metric_sums[metric][p_id] = 0.0
@@ -386,7 +388,7 @@ class InpSpatialAnalyzer:
                     clip_result = processing.run("gdal:cliprasterbymasklayer", clip_params)
                     raster_output_path = clip_result['OUTPUT']
 
-                raster_layer = QgsRasterLayer(raster_output_path, f"Heatmap {metric} ({stadium_target})")
+                raster_layer = QgsRasterLayer(raster_output_path, f"Interpolasi IDW {metric} ({stadium_target})")
 
                 r_provider = raster_layer.dataProvider()
                 stats = r_provider.bandStatistics(1, QgsRasterBandStats.Stats.All)
@@ -410,7 +412,7 @@ class InpSpatialAnalyzer:
 
             self.iface.messageBar().pushMessage(
                 "Sukses", 
-                f"Analisis selesai! Pemilihan field dinamis berhasil diproses.", 
+                f"Analisis selesai! CSV tersimpan dan {len(selected_metrics)} raster interpolasi IDW berhasil dibuat.", 
                 level=3
             )
 

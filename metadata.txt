@@ -2,26 +2,26 @@
 name=INP Vegetation Analysis
 qgisMinimumVersion=3.0
 description=Calculate Relative Density (KR), Relative Frequency (FR), Relative Dominance (DR), and Importance Value Index (INP) of vegetation, and generate raster heatmaps using IDW interpolation.
-version=2.7.6
+version=2.7.7
 author=Muhammad Parif - IPB University
 email=payip28muhammad@apps.ipb.ac.id
 
-about=The INP Vegetation Analysis Plugin is designed to process and analyze vegetation data using Importance Value Index (INP). The plugin calculates Relative Density (KR), Relative Frequency (FR), Relative Dominance (DR), and INP for various vegetation growth stages, including trees, poles, stakes, seedlings, lianas, and understory plants. It can export analysis results to CSV, add calculated attributes to vector data, and generate raster heatmaps to visualize spatial distribution using IDW interpolation.
+about=The INP Vegetation Analysis Plugin is designed to process and analyze vegetation data using Importance Value Index (INP). The plugin calculates Relative Density (KR), Relative Frequency (FR), Relative Dominance (DR), and INP for various vegetation growth stages, including trees, poles, stakes, seedlings, lianas, and understory plants. It can export analysis results to CSV, add calculated attributes to vector data, and generate raster heatmaps to visualize spatial distribution using IDW interpolation. Click here to customize the data naming conventions at the stage level: https://docs.google.com/spreadsheets/d/1Pwo5Hs-0Z4UUl0CKj2GvnmGixT2cVVAWlecih10NOuw/edit?usp=drivesdk. The guidelines can be accessed at the following link: https://drive.google.com/file/d/1SJFC4Vl5N0wtCwlgZxUccL4qvvAaOM4X/view?usp=drivesdk.
 
-tracker=https://github.com/muhammad-parif/INP-Analisis/issues
-repository=https://github.com/muhammad-parif/INP-Analisis.git
+tracker=https://github.com/muhammad-parif/inp_spatial_analyzer/issues
+repository=https://github.com/muhammad-parif/inp_spatial_analyzer.git
 
 # Recommended metadata
 
 hasProcessingProvider=False
 
 # Changelog
-changelog=Version 2.7.6 - User interface loading synchronization has been fixed.
+changelog=Version 2.7.8 - Fixed a calculation bug.
 
 # Tags
 tags=vegetation, inp, forestry, importance value index, vegetation analysis, idw, heatmap
 
-homepage=https://github.com/muhammad-parif/INP-Analisis
+homepage=https://github.com/muhammad-parif/inp_spatial_analyzer
 category=Vector
 icon=icon.png
 
